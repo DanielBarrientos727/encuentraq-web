@@ -1,0 +1,17 @@
+{
+  "name": "EncuentraQ - Objetos perdidos y encontrados",
+  "short_name": "EncuentraQ",
+  "description": "Plataforma web para reportar, buscar y recuperar objetos perdidos en el Quindío, Colombia.",
+  "start_url": "/encuentraq-web/",
+  "scope": "/encuentraq-web/",
+  "display": "standalone",
+  "background_color": "#f5f9f6",
+  "theme_color": "#217a4b",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

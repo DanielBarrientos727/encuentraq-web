@@ -202,3 +202,9 @@ button { cursor: pointer; }
   .text-link { font-size: 9px; }
   .tabs button { padding: 0 9px; }
 }
+
+.save-button.active-fav, .icon-button.active-fav { color: #e53e3e; background: #fff5f5; border-color: #feb2b2; }
+.mobile-icon { position: relative; }
+.mobile-badge { position: absolute; top: -4px; right: -6px; background: #e53e3e; color: white; font-size: 8px; font-weight: 700; width: 15px; height: 15px; border-radius: 50%; display: grid; place-items: center; }
+.sidebar nav button span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mobile-nav { grid-template-columns: repeat(5, 1fr) !important; }

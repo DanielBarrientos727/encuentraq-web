@@ -1,64 +1,73 @@
 # EncuentraQ
 
-> Una plataforma web para reportar, buscar y recuperar objetos perdidos en el Quindío.
+> Una plataforma web comunitaria para reportar, buscar y recuperar objetos perdidos en el departamento del Quindío, Colombia.
 
-![Estado](https://img.shields.io/badge/estado-En%20desarrollo-217A4B?style=flat-square)
+![Estado](https://img.shields.io/badge/estado-Producci%C3%B3n-217A4B?style=flat-square)
 ![Licencia](https://img.shields.io/badge/licencia-MIT-3D9865?style=flat-square)
-![Diseño](https://img.shields.io/badge/diseño-Responsive-378ADD?style=flat-square)
+![Diseño](https://img.shields.io/badge/diseño-Responsive%20%2F%20PWA-378ADD?style=flat-square)
 ![Región](https://img.shields.io/badge/región-Quindío-BA7517?style=flat-square)
 
 ---
 
 ## ¿Qué es EncuentraQ?
 
-EncuentraQ es un proyecto de plataforma web que busca facilitar la publicación, búsqueda y recuperación de objetos perdidos o encontrados en el departamento del Quindío, Colombia.
+**EncuentraQ** es una aplicación web diseñada para facilitar la publicación, búsqueda y recuperación de objetos perdidos o encontrados en los municipios del Quindío (Armenia, Calarcá, Salento, Montenegro, Circasia, Quimbaya, La Tebaida y Filandia).
 
-La idea es conectar a las personas que han perdido un objeto con quienes lo han encontrado, mediante una experiencia sencilla, accesible y adaptada a dispositivos móviles y computadores.
+Conecta de forma sencilla a las personas que han perdido un objeto con quienes lo han encontrado, priorizando la privacidad y la seguridad comunitaria mediante encuentros en lugares públicos.
 
-El proyecto comienza con un prototipo visual e interactivo y evolucionará progresivamente a medida que se desarrollen sus funcionalidades.
+---
 
-## Objetivos
+## Características Principales (Versión 1.0)
 
-- Publicar reportes de objetos perdidos y encontrados.
-- Buscar publicaciones por categoría, municipio y fecha.
-- Consultar los detalles de cada objeto.
-- Facilitar el contacto entre las personas involucradas, priorizando la privacidad.
-- Construir una interfaz responsive con posibilidad de incorporar funcionalidades de aplicación web progresiva (PWA) en el futuro.
+* **Búsqueda Avanzada y Filtros:** Búsqueda en tiempo real por texto, filtrado por municipio, categoría (documentos, llaves, tecnología, etc.), estado (perdido/encontrado) y ordenamiento cronológico.
+* **Publicación Local de Reportes:** Formulario completo con validación y carga de imágenes que almacena los reportes de forma persistente en el navegador (`localStorage`).
+* **Gestión de Actividad y Estado:** Panel personal para administrar tus reportes creados, marcarlos como resueltos o eliminarlos.
+* **Favoritos:** Guarda tus publicaciones de interés para consultarlas rápidamente.
+* **Aplicación Web Progresiva (PWA):** Instalable en teléfonos y computadores, con funcionamiento offline básico y caché optimizada para GitHub Pages (`/encuentraq-web/`).
+* **Diseño Adaptable (Responsive):** Interfaz optimizada tanto para escritorio como para dispositivos móviles con navegación táctil fluida.
 
-## Alcance inicial
+---
 
-La primera versión se centrará en el diseño de la interfaz y en un prototipo funcional con datos de demostración.
+## Limitaciones Importantes (Datos Locales)
 
-Las funciones que requieran almacenamiento persistente, autenticación, mensajería real o servicios externos se desarrollarán en etapas posteriores.
+* **Sin Backend ni Sincronización en la Nube:** Todos los reportes creados y favoritos se guardan exclusivamente en el almacenamiento local (`localStorage`) de tu navegador. No se comparten con otros usuarios ni dispositivos.
+* **Privacidad:** No se recopilan datos personales, documentos de identidad ni direcciones privadas.
 
-## Tecnología y herramientas
+---
 
-| Herramienta | Uso previsto |
-|---|---|
-| Figma | Diseño y prototipado de la interfaz |
-| Figma Make | Creación del prototipo web interactivo |
-| Claude | Apoyo en la implementación y revisión del código |
-| HTML, CSS y JavaScript o tecnologías compatibles | Desarrollo web, según la estructura final del proyecto |
-| Git y GitHub | Control de versiones y gestión del código |
+## Instalación y Desarrollo Local
 
-## Desarrollo
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior).
 
-El proyecto se desarrollará de forma incremental:
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/DanielBarrientos727/encuentraq-web.git
+   cd encuentraq-web
+   ```
 
-1. Diseño de la experiencia de usuario y de las pantallas principales.
-2. Creación del prototipo interactivo y adaptación a distintos tamaños de pantalla.
-3. Organización y revisión del código fuente.
-4. Implementación progresiva de funcionalidades.
-5. Evaluación de opciones para incorporar persistencia de datos y capacidades PWA.
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-## Estado del proyecto
+3. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
 
-EncuentraQ se encuentra en una etapa inicial de diseño y desarrollo. Las funcionalidades descritas representan objetivos del proyecto y no implican que ya estén implementadas.
+4. Compila para producción:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## Despliegue en GitHub Pages
+
+El proyecto está configurado para ser publicado automáticamente en GitHub Pages en la ruta base `/encuentraq-web/`.
+
+---
 
 ## Licencia
 
 Este proyecto se distribuye bajo la licencia [MIT](LICENSE).
-
----
-
-Desarrollado como un proyecto independiente de aprendizaje y experimentación en desarrollo web, con enfoque en una necesidad de la comunidad del Quindío.
