@@ -448,11 +448,11 @@ function SearchResults({
       <div className="search-tool">
         <Icon name="Search" />
         <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Ej. llaves con llavero azul" />
-        {query && <button onClick={() => setQuery("")}>Limpiar</button>}
+        {query && <button aria-label="Limpiar búsqueda" onClick={() => setQuery("")}>Limpiar</button>}
       </div>
       <div className="results-layout">
         <aside className={`filters ${showFilters ? "show" : ""}`}>
-          <div className="filter-mobile-head"><strong>Filtrar resultados</strong><button onClick={() => setShowFilters(false)}>Cerrar</button></div>
+          <div className="filter-mobile-head"><strong>Filtrar resultados</strong><button aria-label="Cerrar filtros" onClick={() => setShowFilters(false)}>Cerrar</button></div>
           <div className="filter-title"><strong>Filtros</strong><button onClick={() => { setCategory(""); setLocation("Todo el Quindío"); }}>Limpiar</button></div>
           <label>Municipio<select value={location} onChange={(event) => setLocation(event.target.value)}>{municipalities.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label>Categoría<select value={category} onChange={(event) => setCategory(event.target.value)}><option value="">Todas las categorías</option>{categories.map(([, item]) => <option key={item}>{item}</option>)}</select></label>
@@ -501,8 +501,8 @@ function Publish({ onDone }: { onDone: () => void }) {
         <section className="form-section">
           <div className="form-section-title"><span>1</span><div><h2>¿Qué ocurrió?</h2><p>Selecciona el tipo de reporte que quieres crear.</p></div></div>
           <div className="type-options">
-            <button type="button" className={type === "Perdido" ? "selected" : ""} onClick={() => setType("Perdido")}><span><Icon name="Search" /></span><div><strong>Perdí un objeto</strong><small>Quiero que la comunidad me ayude a encontrarlo.</small></div><i>{type === "Perdido" && <Icon name="Check" size={15} />}</i></button>
-            <button type="button" className={type === "Encontrado" ? "selected" : ""} onClick={() => setType("Encontrado")}><span><Icon name="Check" /></span><div><strong>Encontré un objeto</strong><small>Quiero ayudar a devolverlo a su dueño.</small></div><i>{type === "Encontrado" && <Icon name="Check" size={15} />}</i></button>
+            <button type="button" aria-pressed={type === "Perdido"} className={type === "Perdido" ? "selected" : ""} onClick={() => setType("Perdido")}><span><Icon name="Search" /></span><div><strong>Perdí un objeto</strong><small>Quiero que la comunidad me ayude a encontrarlo.</small></div><i>{type === "Perdido" && <Icon name="Check" size={15} />}</i></button>
+            <button type="button" aria-pressed={type === "Encontrado"} className={type === "Encontrado" ? "selected" : ""} onClick={() => setType("Encontrado")}><span><Icon name="Check" /></span><div><strong>Encontré un objeto</strong><small>Quiero ayudar a devolverlo a su dueño.</small></div><i>{type === "Encontrado" && <Icon name="Check" size={15} />}</i></button>
           </div>
         </section>
         <section className="form-section">
@@ -538,7 +538,7 @@ function Detail({ item, back }: { item: Listing; back: () => void }) {
         <div className="detail-main">
           <div className="detail-image"><img src={item.image} alt={item.title} /><span className={`status ${item.status.toLowerCase()}`}>{item.status}</span></div>
           <div className="detail-content">
-            <div className="detail-title"><div><span className="eyebrow">{item.category}</span><h1>{item.title}</h1></div><button className="icon-button"><Icon name="Bookmark" /></button></div>
+            <div className="detail-title"><div><span className="eyebrow">{item.category}</span><h1>{item.title}</h1></div><button className="icon-button" aria-label="Guardar publicación"><Icon name="Bookmark" /></button></div>
             <div className="detail-meta"><span><Icon name="MapPin" />{item.municipality} · {item.place}</span><span><Icon name="Clock" />{item.date}</span></div>
             <hr />
             <h2>Descripción</h2><p>{item.description}</p>
@@ -565,7 +565,7 @@ function ActivityPage({ navigate }: { navigate: (view: View) => void }) {
       <div className="activity-stats"><div><span><Icon name="Activity" /></span><div><strong>2</strong><small>Reportes activos</small></div></div><div><span><Icon name="Message" /></span><div><strong>3</strong><small>Conversaciones</small></div></div><div><span><Icon name="Check" /></span><div><strong>1</strong><small>Objeto recuperado</small></div></div></div>
       <section className="activity-panel">
         <div className="section-heading"><div><h2>Tus reportes</h2><p>Publicaciones que has creado recientemente.</p></div></div>
-        {[listings[1], listings[2]].map((item, index) => <article className="activity-row" key={item.id}><img src={item.image} alt="" /><div className="activity-info"><span className={`status ${item.status.toLowerCase()}`}>{index ? "Resuelto" : "Activo"}</span><h3>{item.title}</h3><p>{item.municipality} · {item.date}</p></div><div className="activity-actions"><button>Editar</button><Icon name="ChevronRight" /></div></article>)}
+        {[listings[1], listings[2]].map((item, index) => <article className="activity-row" key={item.id}><img src={item.image} alt="" /><div className="activity-info"><span className={`status ${item.status.toLowerCase()}`}>{index ? "Resuelto" : "Activo"}</span><h3>{item.title}</h3><p>{item.municipality} · {item.date}</p></div><div className="activity-actions"><button aria-label={`Editar reporte ${item.title}`}>Editar</button><Icon name="ChevronRight" /></div></article>)}
       </section>
     </main>
   );
